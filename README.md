@@ -1,8 +1,8 @@
-# Source QLTK NRI
+# Source QLTK NRO
 
 Project Eclipse **NRO-JavaME** chứa 158 tệp Java game, 488 resource và các thư viện để build/chạy/debug, cùng trình quản lý tài khoản Windows. Đây là bản đã sửa lỗi Start và vùng repaint trong MicroEmulator; không chứa source decompile cũ, DLL, bản gốc hoặc dữ liệu phân tích.
 
-Tải **`QLTK.jar`** ở [GitHub Releases](https://github.com/Longdeptrai1107/Source-QLTK-NRI/releases/latest). Chạy trên Windows với Java 17 trở lên. Source không kèm JDK hoặc dữ liệu tài khoản cá nhân; thư viện build nhỏ nằm trong `lib/` để có thể build lại ngay.
+Tải **`QLTK.jar`** ở [GitHub Releases](https://github.com/Longdeptrai1107/Source-QLTK-NRO/releases/latest). Chạy trên Windows với Java 17 trở lên. Source không kèm JDK hoặc dữ liệu tài khoản cá nhân; thư viện build nhỏ nằm trong `lib/` để có thể build lại ngay.
 
 ## Proxy và tiết kiệm tài nguyên
 
