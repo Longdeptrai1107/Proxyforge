@@ -1,0 +1,539 @@
+{
+  "checkedAt": "2026-11-26T16:28:45.225Z",
+  "total": 50,
+  "readable": 50,
+  "results": [
+    {
+      "id": "my-proxy-web",
+      "count": 210,
+      "protocols": [
+        "socks4",
+        "http",
+        "socks5"
+      ],
+      "errors": [],
+      "durationMs": 2144
+    },
+    {
+      "id": "free-proxy-list-net",
+      "count": 300,
+      "protocols": [
+        "http",
+        "socks4"
+      ],
+      "errors": [],
+      "durationMs": 894
+    },
+    {
+      "id": "proxy-list-org-web",
+      "count": 28,
+      "protocols": [
+        "http",
+        "https"
+      ],
+      "errors": [],
+      "durationMs": 708
+    },
+    {
+      "id": "spys-one-web",
+      "count": 60,
+      "protocols": [
+        "http",
+        "socks5"
+      ],
+      "errors": [],
+      "durationMs": 2307
+    },
+    {
+      "id": "openproxylist-web",
+      "count": 19869,
+      "protocols": [
+        "http",
+        "socks4",
+        "socks5"
+      ],
+      "errors": [],
+      "durationMs": 5258
+    },
+    {
+      "id": "proxydb-web",
+      "count": 12,
+      "protocols": [
+        "http"
+      ],
+      "errors": [],
+      "durationMs": 1471
+    },
+    {
+      "id": "freeproxy-world-web",
+      "count": 50,
+      "protocols": [
+        "http",
+        "socks5",
+        "https"
+      ],
+      "errors": [],
+      "durationMs": 1405
+    },
+    {
+      "id": "proxynova-web",
+      "count": 35,
+      "protocols": [
+        "http"
+      ],
+      "errors": [],
+      "durationMs": 1113
+    },
+    {
+      "id": "geonode-web",
+      "count": 500,
+      "protocols": [
+        "socks5",
+        "http",
+        "socks4",
+        "https"
+      ],
+      "errors": [],
+      "durationMs": 2356
+    },
+    {
+      "id": "proxylistplus-web",
+      "count": 50,
+      "protocols": [
+        "http"
+      ],
+      "errors": [],
+      "durationMs": 1965
+    },
+    {
+      "id": "hproxy-web",
+      "count": 8037,
+      "protocols": [
+        "http",
+        "socks4",
+        "socks5",
+        "https"
+      ],
+      "errors": [],
+      "durationMs": 2876
+    },
+    {
+      "id": "proxyverity-web",
+      "count": 20,
+      "protocols": [
+        "socks5",
+        "socks4",
+        "http"
+      ],
+      "errors": [],
+      "durationMs": 1787
+    },
+    {
+      "id": "proxyfreeonly-web",
+      "count": 15,
+      "protocols": [
+        "https",
+        "socks5",
+        "socks4"
+      ],
+      "errors": [],
+      "durationMs": 1485
+    },
+    {
+      "id": "proxy11-web",
+      "count": 15,
+      "protocols": [
+        "http"
+      ],
+      "errors": [],
+      "durationMs": 1559
+    },
+    {
+      "id": "proxmint-web",
+      "count": 200,
+      "protocols": [
+        "socks5",
+        "http",
+        "socks4",
+        "https"
+      ],
+      "errors": [],
+      "durationMs": 1180
+    },
+    {
+      "id": "proxyscrape-web",
+      "count": 1989,
+      "protocols": [
+        "socks4",
+        "socks5",
+        "http"
+      ],
+      "errors": [],
+      "durationMs": 3343
+    },
+    {
+      "id": "proxyelite-web",
+      "count": 538,
+      "protocols": [
+        "http",
+        "socks4",
+        "socks5"
+      ],
+      "errors": [],
+      "durationMs": 2196
+    },
+    {
+      "id": "scrappey-web",
+      "count": 180,
+      "protocols": [
+        "http",
+        "socks5",
+        "socks4"
+      ],
+      "errors": [],
+      "durationMs": 1242
+    },
+    {
+      "id": "fineproxy-web",
+      "count": 5296,
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "errors": [],
+      "durationMs": 1822
+    },
+    {
+      "id": "proxymania-web",
+      "count": 15,
+      "protocols": [
+        "https"
+      ],
+      "errors": [],
+      "durationMs": 1743
+    },
+    {
+      "id": "hidemy-name-web",
+      "count": 64,
+      "protocols": [
+        "http"
+      ],
+      "errors": [],
+      "durationMs": 2130
+    },
+    {
+      "id": "advanced-name-web",
+      "count": 100,
+      "protocols": [
+        "http",
+        "https",
+        "socks5",
+        "socks4"
+      ],
+      "errors": [],
+      "durationMs": 1245
+    },
+    {
+      "id": "proxora-web",
+      "count": 500,
+      "protocols": [
+        "http",
+        "socks4",
+        "socks5"
+      ],
+      "errors": [],
+      "durationMs": 1770
+    },
+    {
+      "id": "proxyspace-web",
+      "count": 19952,
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "errors": [],
+      "durationMs": 5112
+    },
+    {
+      "id": "flashproxy-web",
+      "count": 1000,
+      "protocols": [
+        "http",
+        "socks5",
+        "socks4"
+      ],
+      "errors": [],
+      "durationMs": 1583
+    },
+    {
+      "id": "proxy-daily-web",
+      "count": 300,
+      "protocols": [
+        "http",
+        "socks4",
+        "socks5",
+        "https"
+      ],
+      "errors": [],
+      "durationMs": 986
+    },
+    {
+      "id": "proxylister-web",
+      "count": 5,
+      "protocols": [
+        "http"
+      ],
+      "errors": [],
+      "durationMs": 3781
+    },
+    {
+      "id": "proxiware-web",
+      "count": 100,
+      "protocols": [
+        "https",
+        "http"
+      ],
+      "errors": [],
+      "durationMs": 1476
+    },
+    {
+      "id": "nodemaven-web",
+      "count": 2203,
+      "protocols": [
+        "https",
+        "socks4",
+        "socks5",
+        "http"
+      ],
+      "errors": [],
+      "durationMs": 3057
+    },
+    {
+      "id": "proxycompass-web",
+      "count": 598,
+      "protocols": [
+        "http",
+        "socks4",
+        "socks5"
+      ],
+      "errors": [],
+      "durationMs": 2900
+    },
+    {
+      "id": "freeproxyapi-web",
+      "count": 15,
+      "protocols": [
+        "http",
+        "socks5"
+      ],
+      "errors": [],
+      "durationMs": 1692
+    },
+    {
+      "id": "proxyhub-web",
+      "count": 80,
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "errors": [],
+      "durationMs": 9762
+    },
+    {
+      "id": "myproxychecker-web",
+      "count": 103,
+      "protocols": [
+        "socks5",
+        "http",
+        "https"
+      ],
+      "errors": [],
+      "durationMs": 1572
+    },
+    {
+      "id": "ihuan-web",
+      "count": 18,
+      "protocols": [
+        "http"
+      ],
+      "errors": [],
+      "durationMs": 1236
+    },
+    {
+      "id": "proxytee-web",
+      "count": 1929,
+      "protocols": [
+        "http",
+        "socks5",
+        "socks4",
+        "https"
+      ],
+      "errors": [],
+      "durationMs": 2362
+    },
+    {
+      "id": "rola-ip-web",
+      "count": 100,
+      "protocols": [
+        "http",
+        "https",
+        "socks5",
+        "socks4"
+      ],
+      "errors": [],
+      "durationMs": 2019
+    },
+    {
+      "id": "proxy-free-web",
+      "count": 15,
+      "protocols": [
+        "http",
+        "socks5"
+      ],
+      "errors": [],
+      "durationMs": 1926
+    },
+    {
+      "id": "litport-web",
+      "count": 49,
+      "protocols": [
+        "http",
+        "socks5",
+        "socks4"
+      ],
+      "errors": [],
+      "durationMs": 897
+    },
+    {
+      "id": "databay-web",
+      "count": 10,
+      "protocols": [
+        "https"
+      ],
+      "errors": [],
+      "durationMs": 2107
+    },
+    {
+      "id": "we1-town-web",
+      "count": 50,
+      "protocols": [
+        "socks5",
+        "socks4"
+      ],
+      "errors": [],
+      "durationMs": 1792
+    },
+    {
+      "id": "proxio-web",
+      "count": 661,
+      "protocols": [
+        "http",
+        "socks5",
+        "https",
+        "socks4"
+      ],
+      "errors": [],
+      "durationMs": 562
+    },
+    {
+      "id": "proxyscraper-web",
+      "count": 276,
+      "protocols": [
+        "http",
+        "socks5"
+      ],
+      "errors": [],
+      "durationMs": 1400
+    },
+    {
+      "id": "gimmeproxy-web",
+      "count": 1,
+      "protocols": [
+        "socks4"
+      ],
+      "errors": [],
+      "durationMs": 470
+    },
+    {
+      "id": "cleanproxies-web",
+      "count": 50,
+      "protocols": [
+        "http",
+        "socks5",
+        "socks4"
+      ],
+      "errors": [],
+      "durationMs": 1318
+    },
+    {
+      "id": "marsproxies-web",
+      "count": 10,
+      "protocols": [
+        "http"
+      ],
+      "errors": [],
+      "durationMs": 802
+    },
+    {
+      "id": "dahono-web",
+      "count": 114,
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "errors": [],
+      "durationMs": 765
+    },
+    {
+      "id": "roundproxies-web",
+      "count": 100,
+      "protocols": [
+        "socks5",
+        "http",
+        "socks4"
+      ],
+      "errors": [],
+      "durationMs": 1780
+    },
+    {
+      "id": "gcrawlai-web",
+      "count": 100,
+      "protocols": [
+        "https",
+        "http",
+        "socks4",
+        "socks5"
+      ],
+      "errors": [],
+      "durationMs": 1492
+    },
+    {
+      "id": "89ip-web",
+      "count": 40,
+      "protocols": [
+        "http"
+      ],
+      "errors": [],
+      "durationMs": 2453
+    },
+    {
+      "id": "way2proxy-web",
+      "count": 1989,
+      "protocols": [
+        "socks4",
+        "socks5",
+        "http"
+      ],
+      "errors": [],
+      "durationMs": 1924
+    }
+  ]
+}

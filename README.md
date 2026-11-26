@@ -1,6 +1,6 @@
-# Proxy Forge — Python + C# WinForms
+# Proxy Forge — PHP, Python + C# WinForms
 
-Ứng dụng cục bộ tự tải proxy từ **50 website/API mỗi 60 giây**, lọc trùng và kiểm tra HTTP / HTTPS / SOCKS4 / SOCKS5 với **10.000 proxy đồng thời, timeout tổng 3 giây**. Bảng, API và tệp xuất TXT/CSV/JSON **chỉ chứa proxy live đã qua HTTPS thật**. Web và WinForms gọi cùng engine Python, hiển thị nhà mạng/server, ASN, vị trí ước tính và bộ lọc **249 quốc gia/vùng lãnh thổ**.
+Ứng dụng tự tải proxy từ **50 website/API mỗi 60 giây**, lọc trùng và kiểm tra HTTP / HTTPS / SOCKS4 / SOCKS5 với **10.000 proxy đồng thời, timeout tổng 3 giây**. Bảng, API và tệp xuất TXT/CSV/JSON **chỉ chứa proxy live đã qua HTTPS thật**. Bản Python Web và C# WinForms dùng chung engine Python; bản **PHP thuần** chạy độc lập trên hosting. Có nhà mạng/server, ASN, vị trí ước tính và bộ lọc **249 quốc gia/vùng lãnh thổ**.
 
 > Chỉ dùng proxy công khai cho thử nghiệm không nhạy cảm. Proxy miễn phí có thể ghi lại dữ liệu hoặc ngừng hoạt động bất cứ lúc nào. Không gửi mật khẩu, cookie hay dữ liệu cá nhân qua proxy công cộng; kiểm tra thành công không phải cam kết về độ riêng tư hoặc độ ổn định.
 
@@ -10,10 +10,23 @@ Tải tại [GitHub Releases](https://github.com/Longdeptrai1107/Source-QLTK-NRO
 
 | Gói | Cách chạy | Yêu cầu |
 | --- | --- | --- |
+| `ProxyForge-PHP-Hosting.zip` | Upload thư mục lên hosting, mở website để đặt mật khẩu và thêm cron mỗi phút | PHP 8.2+ 64-bit, cURL/OpenSSL; zlib cho địa lý |
 | `ProxyForge-Python-Web.zip` | Giải nén, mở `Run-Python.cmd` | Windows, Python 3.11+ |
 | `ProxyForge-CSharp-WinForms.zip` | Giải nén cả gói, mở `Run-WinForms.cmd`; có sẵn `winforms/ProxyForge.WinForms.exe` | Windows, .NET Framework 4.8, Python 3.11+ |
 
-Cả hai gói kèm mã nguồn Python và C#, giao diện web, kiểm thử và hướng dẫn build. Bản WinForms dùng engine Python đi kèm; giữ nguyên cấu trúc thư mục khi giải nén. Dependency Python được cài ở lần chạy đầu. Đối chiếu tệp tải về bằng `SHA256SUMS.txt` của bản phát hành.
+Gói Python Web và C# WinForms kèm mã nguồn, giao diện web, kiểm thử và hướng dẫn build. WinForms dùng engine Python đi kèm; giữ nguyên cấu trúc thư mục khi giải nén. Dependency Python được cài ở lần chạy đầu. Gói PHP độc lập chỉ cần PHP cùng extension chuẩn của hosting. Đối chiếu tệp tải về bằng `SHA256SUMS.txt` của bản phát hành.
+
+## Chạy PHP thuần trên website
+
+Gói **PHP Hosting** chỉ cần PHP và extension chuẩn, **không Composer, framework, thư viện ngoài, Python, Node hay database**. Upload nội dung `php/` vào `public_html/proxyforge/`, đặt mật khẩu quản trị rồi thêm Cron Job mỗi phút:
+
+```cron
+* * * * * /usr/local/bin/php /home/USERNAME/public_html/proxyforge/cron.php
+```
+
+Cron đầu tiên tự tải và kiểm tra, không cần nút Bắt đầu hay mở tab. VPS có thể chạy `php worker.php` để bắt đầu ngay và lặp liên tục. PHP request thông thường cần cron/worker để được đánh thức khi không có truy cập. Bản PHP dùng `curl_multi`, timeout tổng 3 giây, lưu file có khóa, giao diện đăng nhập và đầu ra chỉ live.
+
+Xem [hướng dẫn upload, cPanel/Nginx, cấu hình và kiểm thử PHP](php/README.md). Nếu shared hosting giới hạn socket, giảm `concurrency` trong `config.local.php` cho phù hợp.
 
 ## Chạy web Python
 
@@ -110,6 +123,8 @@ node --test test/*.test.mjs
 node --check .\public\app.js
 powershell -NoProfile -ExecutionPolicy Bypass -File .\Build-WinForms.ps1
 powershell -NoProfile -STA -ExecutionPolicy Bypass -File .\scripts\test-winforms.ps1
+php .\php\tests\run.php
+node --test .\php\tests\integration.test.mjs
 .\.venv\Scripts\python.exe .\scripts\audit-sources.py --output .\docs\source-audit.json
 ```
 

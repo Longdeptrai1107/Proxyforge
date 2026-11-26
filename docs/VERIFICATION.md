@@ -9,6 +9,7 @@ Các phép thử hồi quy dùng thư mục dữ liệu riêng trong thư mục 
 | Tải nguồn bằng Node | 50/50 trả danh sách đọc được, bao gồm các endpoint giao thức bổ sung |
 | Python | 28 ca kiểm thử đạt |
 | Node và giao diện headless | 20 ca kiểm thử đạt, không bỏ qua trình duyệt |
+| PHP thuần | 15 ca PHP + 3 ca tích hợp/network/trình duyệt đạt; 50/50 nguồn đọc được; [kiểm chứng PHP](../php/docs/VERIFICATION.md) |
 | WinForms | Build thành công; mở cửa sổ và chạy với backend Python thật |
 | Bộ lọc quốc gia | 249 mã ISO cùng lựa chọn mọi quốc gia/chưa xác định; danh sách và tệp xuất lọc cùng quốc gia |
 | Tự động | Backend khởi động là chạy ngay, kể cả phiên cũ đã tạm dừng; không cần trình duyệt hoặc POST kích hoạt; lặp mỗi 60 giây |
