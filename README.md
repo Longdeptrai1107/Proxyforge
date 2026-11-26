@@ -1,94 +1,122 @@
-# Source QLTK NRO
+# Proxy Forge — Python + C# WinForms
 
-Project Eclipse **NRO-JavaME** chứa 158 tệp Java game, 488 resource và các thư viện để build/chạy/debug, cùng trình quản lý tài khoản Windows. Đây là bản đã sửa lỗi Start và vùng repaint trong MicroEmulator; không chứa source decompile cũ, DLL, bản gốc hoặc dữ liệu phân tích.
+Ứng dụng cục bộ tự tải proxy từ **50 website/API mỗi 60 giây**, lọc trùng và kiểm tra HTTP / HTTPS / SOCKS4 / SOCKS5 với **10.000 proxy đồng thời, timeout tổng 3 giây**. Bảng, API và tệp xuất TXT/CSV/JSON **chỉ chứa proxy live đã qua HTTPS thật**. Web và WinForms gọi cùng engine Python, hiển thị nhà mạng/server, ASN, vị trí ước tính và bộ lọc **249 quốc gia/vùng lãnh thổ**.
 
-Tải **`QLTK.jar`** ở [GitHub Releases](https://github.com/Longdeptrai1107/Source-QLTK-NRO/releases/latest). Chạy trên Windows với Java 17 trở lên. Source không kèm JDK hoặc dữ liệu tài khoản cá nhân; thư viện build nhỏ nằm trong `lib/` để có thể build lại ngay.
+> Chỉ dùng proxy công khai cho thử nghiệm không nhạy cảm. Proxy miễn phí có thể ghi lại dữ liệu hoặc ngừng hoạt động bất cứ lúc nào. Không gửi mật khẩu, cookie hay dữ liệu cá nhân qua proxy công cộng; kiểm tra thành công không phải cam kết về độ riêng tư hoặc độ ổn định.
 
-## Proxy và tiết kiệm tài nguyên
+## Tải bản phát hành
 
-Mỗi tài khoản có cấu hình riêng, không dùng chung proxy giữa các cửa sổ game:
+Tải tại [GitHub Releases](https://github.com/Longdeptrai1107/Source-QLTK-NRO/releases/latest):
 
-| Trường | Cách nhập |
-|---|---|
-| Kết nối | `DIRECT` để kết nối trực tiếp, `SOCKS5` hoặc `HTTP` để dùng HTTP CONNECT |
-| Host proxy | IP/tên miền, ví dụ `127.0.0.1`; không nhập tiền tố `http://` |
-| Cổng proxy | Số từ 1 đến 65535 do nhà cung cấp proxy cấp |
-| Tài khoản / mật khẩu proxy | Để trống nếu proxy không yêu cầu xác thực; SOCKS5 hỗ trợ username/password, HTTP hỗ trợ Basic |
-| RAM tối đa / game | 96 MB, **128 MB mặc định**, hoặc 256 MB cho phiên cần thêm bộ nhớ |
+| Gói | Cách chạy | Yêu cầu |
+| --- | --- | --- |
+| `ProxyForge-Python-Web.zip` | Giải nén, mở `Run-Python.cmd` | Windows, Python 3.11+ |
+| `ProxyForge-CSharp-WinForms.zip` | Giải nén cả gói, mở `Run-WinForms.cmd`; có sẵn `winforms/ProxyForge.WinForms.exe` | Windows, .NET Framework 4.8, Python 3.11+ |
 
-Nhập proxy cùng tài khoản rồi bấm **Thêm tài khoản** hoặc **Lưu thay đổi**. Khi sửa, để trống mật khẩu để giữ mật khẩu đã lưu; chọn `DIRECT` và lưu để bỏ proxy. Tài khoản cũ tự dùng `DIRECT` và 128 MB, không cần nhập lại.
+Cả hai gói kèm mã nguồn Python và C#, giao diện web, kiểm thử và hướng dẫn build. Bản WinForms dùng engine Python đi kèm; giữ nguyên cấu trúc thư mục khi giải nén. Dependency Python được cài ở lần chạy đầu. Đối chiếu tệp tải về bằng `SHA256SUMS.txt` của bản phát hành.
 
-Proxy chuyển tiếp socket TCP của game, gồm cả tải tài nguyên qua giao thức game. Tên miền đích SOCKS5 được gửi cho proxy phân giải. HTTP proxy phải cho phép `CONNECT` tới cổng game (có nhà cung cấp chỉ mở cổng 443). Khi proxy lỗi, QLTK báo **Lỗi proxy** và không tự chuyển sang kết nối trực tiếp. Mật khẩu proxy được bảo vệ bằng Windows DPAPI và truyền qua stdin tới JVM con, tương tự mật khẩu game. Website được mở bằng trình duyệt ngoài dùng cấu hình mạng của trình duyệt đó.
+## Chạy web Python
 
-Mỗi JVM game bắt đầu với heap 16 MB, dùng Serial GC và bộ đệm mã máy tối đa 32 MB; giới hạn heap mặc định giảm từ 512 xuống 128 MB. Đây là giới hạn heap Java, **không phải tổng RAM của tiến trình**: JVM, luồng và giao diện còn có bộ nhớ riêng. Chế độ 96 MB phù hợp để thử mở nhiều cửa sổ; nếu phiên thiếu heap hãy chọn 128 hoặc 256 MB.
+Yêu cầu Python 3.11 trở lên và truy cập Internet.
 
-Luồng gửi dữ liệu dùng `wait/notify` khi rảnh thay cho việc thức dậy mỗi 10 ms. Cửa sổ đang thao tác giữ nhịp vẽ gốc khoảng 37 FPS; cửa sổ mất focus vẽ tối đa 5 FPS, thu nhỏ thì ngừng vẽ. Logic game vẫn cập nhật theo nhịp gốc 27 ms và luồng mạng vẫn chạy. JVM con bỏ qua các lệnh ép `System.gc()` của game để tránh dừng hình do gọi GC thủ công; bộ gom rác vẫn tự hoạt động khi cần. Hiệu năng thực tế phụ thuộc số cửa sổ, cấu hình máy, bản đồ và độ trễ proxy/server.
+1. Mở `Run-Python.cmd`.
+2. Lần đầu chương trình tạo môi trường ảo `.venv`, cài `aiohttp`, rồi khởi động web ở `http://127.0.0.1:8787`.
+3. Backend tự bắt đầu tải nguồn và kiểm tra ngay, sau đó lặp mỗi **60 giây**, kể cả khi chưa mở trình duyệt. Không cần bấm bắt đầu. Proxy mới xuất hiện khi qua HTTPS, proxy cũ bị loại khi đo lại thất bại. **Tạm dừng** ngưng phiên hiện tại; **Tiếp tục tự động** chạy lại. Mỗi lần mở backend luôn tự chạy, kể cả phiên trước đã dừng.
 
-## Quản lý tài khoản
-
-Phần mềm được đóng gói thành **một file `QLTK.jar` duy nhất**, chứa giao diện Java Swing, MicroEmulator và JAR/JAD game đã sửa. File ở thư mục gốc và bản sao trong `release/` đã được cập nhật cùng bản sửa. Đóng trình quản lý cũ và mở lại các cửa sổ game để nhận source mới; tài khoản đã lưu được giữ nguyên. Có thể chép riêng file JAR sang thư mục khác hoặc máy Windows khác có Java 17+ rồi chạy:
+Hoặc mở PowerShell tại thư mục mã nguồn và chạy:
 
 ```powershell
-java -jar .\QLTK.jar
+py -3 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m proxyforge.web
 ```
 
-Có thể bấm đúp `QLTK.jar` nếu Windows đã liên kết `.jar` với Java. `QuanLyTaiKhoan.cmd` chỉ là lối mở tiện dụng trong thư mục source, không bắt buộc khi sử dụng bản JAR.
+`Run-Python.cmd` gọi `Start-Web.ps1`: nếu backend của chính dự án đang giữ cổng, script lưu phiên và khởi động lại để nạp mã mới, chờ backend bật tự động rồi mới mở trình duyệt. Điều này tránh giao diện mới gọi `/api/auto` hoặc `/api/refresh` vào backend cũ gây 404. Script không dừng ứng dụng khác giữ cổng. Đổi cổng bằng `$env:PORT=8788` trước khi chạy; URL trình duyệt dùng đúng cổng đã chọn.
 
-1. Nhập tài khoản, mật khẩu, chọn server và nhập ghi chú, rồi bấm **Thêm tài khoản**.
-2. Chọn proxy và mức RAM nếu cần. Bấm một dòng trong bảng để mở game; có thể chọn dòng bằng bàn phím rồi bấm **Chạy đã chọn** hoặc Enter.
-3. Mỗi tài khoản mở một MicroEmulator riêng ở chế độ **Resizable**, vùng game ban đầu **240 × 320**. Luồng nền khởi động và theo dõi tiến trình giúp giao diện quản lý tiếp tục phản hồi.
-4. Trình quản lý truyền tài khoản/mật khẩu/server và mã phiên riêng qua stdin của tiến trình Java con. Bootstrap tìm MIDlet đang chạy, lấy đúng classloader của game và gọi `AccountAutomation.bindSession(...)` trong JAR game. Game xác nhận lại mã phiên, từ chối gắn đè tài khoản của một phiên đã có tài khoản.
-   Trong vòng cập nhật đầu tiên sau khi nhận tài khoản, code game ghi TK/MK vào RMS, điền ô đăng nhập và đặt server, IP, port trước khi chờ mạng. Khi đã ghi xong game phát trạng thái **Đã ghi tài khoản, mật khẩu và server vào game**. Việc nạp lại danh sách server và tạo lại màn hình Login không được xóa hoặc chuyển những thông tin này về mặc định. Kết nối server thất bại vẫn giữ thông tin đã điền.
-5. Khi game hiện yêu cầu tải dữ liệu, chức năng tự động gọi chính lệnh của nút **Tải dữ liệu**. Sau khi game xác nhận dữ liệu sẵn sàng, tự gọi **Chơi tài khoản** (`ServerListScreen.perform(3, null)`), đi qua `Login_New()` và `LoginScr.doLogin()` bằng TK/MK của phiên. Nếu game xác nhận dữ liệu đã có đúng phiên bản, bỏ qua tải và thực hiện luôn bước Chơi tài khoản. Không cần bấm tiếp bằng tay. Việc đóng kết nối phụ chỉ xóa trạng thái của kết nối phụ, giữ nguyên xác nhận dữ liệu của kết nối chính.
-6. Dùng **Dừng đã chọn** để đóng game. Muốn sửa tài khoản đang chạy, hãy dừng trước, sửa các ô rồi bấm **Lưu thay đổi**. Để trống ô mật khẩu khi sửa để giữ mật khẩu cũ. Nút **Xóa** có hỏi xác nhận.
+Có thể đổi endpoint xác minh IP thành dịch vụ HTTPS echo do bạn kiểm soát bằng `$env:CHECK_URL='https://example.com/ip'`. Endpoint phải trả **một IP thuần** hoặc JSON có trường `ip` / `origin`, tối đa 64 KB. TLS được xác minh bình thường.
 
-Trạng thái **Đã gửi đăng nhập** xác nhận lệnh đã được gửi; thông báo tài khoản sai, bảo trì hoặc lỗi mạng hiển thị trong game. Tự động hóa dừng sau 3 phút nếu chưa gửi đăng nhập; người dùng có thể thao tác trực tiếp trong game. Không tự bấm xác nhận các hộp thoại lỗi hoặc thử đăng nhập liên tục.
+## Chạy C# WinForms
 
-Tài khoản lưu tại `%LOCALAPPDATA%\NroAccountManager\accounts-java.xml`, có bản sao `.bak` khi cập nhật. Nếu có dữ liệu từ bản EXE trước đây (`accounts.xml`), bản Java tự nhập một lần khi chưa có tệp Java; tệp cũ được giữ nguyên. Mật khẩu được mã hóa bằng Windows DPAPI qua PowerShell có sẵn trên Windows, được che trong bảng và truyền sang phiên game qua stdin. Không chuyển tệp tài khoản sang người dùng Windows khác để giải mã.
+`Run-WinForms.cmd` tự build khi mã nguồn C# hoặc script build mới hơn file thực thi, sau đó mở `winforms\ProxyForge.WinForms.exe`. Ứng dụng cần Windows, .NET Framework 4.8 và Python 3.11+. Nó ưu tiên môi trường Python có sẵn của dự án, hoặc tự tạo venv trong `%LOCALAPPDATA%\ProxyForge` và cài dependency nếu thiếu. Phiên desktop được lưu tại `%LOCALAPPDATA%\ProxyForge\state.json`; phiên web dùng `data\state.json` trong thư mục mã nguồn. Có thể đặt `PROXYFORGE_DATA` để chọn thư mục dữ liệu riêng.
 
-Lần chạy đầu, chương trình tự giải nén JAR/JAD game đi kèm vào `%LOCALAPPDATA%\NroAccountManager\runtime\`; người dùng không cần chép thêm thư viện hay JAR game bên cạnh `QLTK.jar`. Dữ liệu game/RMS hiện nằm trong bộ nhớ riêng từng tiến trình, vì vậy lần mở game mới có thể cần tải lại dữ liệu. Đóng trình quản lý vẫn để các cửa sổ game đang mở tiếp tục chạy; đóng cửa sổ MicroEmulator để thoát game đó.
-
-Build lại cả game và phần mềm sau khi sửa source hoặc chuyển máy:
+Build trực tiếp:
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\build-manager.ps1
-powershell -NoProfile -ExecutionPolicy Bypass -File .\test-manager.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File .\Build-WinForms.ps1
 ```
 
-Máy chạy cần Windows và Java 17+. Máy build cần JDK 17+; có thể truyền `-JavaHome` cho script build. Không cần EXE quản lý hay .NET compiler để build bản Java. Bộ kiểm tra gồm lưu/đọc tài khoản Unicode, DPAPI, ghi tệp có bản sao, bảng Swing, kiểm tra trạng thái tự động và hai phiên MicroEmulator chạy đồng thời qua splash thật với socket bị chặn. Sau splash, bài kiểm tra đọc trực tiếp các ô TK/MK, RMS, server, IP và port của game mà không tự điền trước; kiểm tra thêm trường hợp tạo lại LoginScr, nút Login thật và canvas 240 × 320. Bài kiểm tra nút Login chặn listener trước khi gửi mạng, không gửi thông tin thử lên server. Bộ kiểm tra không xác nhận đăng nhập thành công với tài khoản trên máy chủ thật.
+Script ưu tiên compiler Windows có sẵn trong .NET Framework, tạo file `winforms\ProxyForge.WinForms.exe`; không yêu cầu .NET SDK. Nếu cài Visual Studio Build Tools, có thể build `winforms\ProxyForge.WinForms.csproj` bằng MSBuild. Giữ thư mục `proxyforge`, `public`, `requirements.txt` bên cạnh dự án vì WinForms khởi động backend từ đây.
 
-Kiểm tra toàn luồng `java -jar QLTK.jar --flow-test` sử dụng máy chủ thử nghiệm TCP trên loopback: bấm nút Thêm, phát sự kiện chuột lên dòng tài khoản của bảng Swing, mở MicroEmulator thật, bắt tay socket, trả lời yêu cầu cập nhật và đọc gói đăng nhập do game gửi. Hai trường hợp bắt buộc tải dữ liệu và dữ liệu đã sẵn sàng đều phải gửi đúng TK/MK sau bước Chơi tài khoản. Không dùng máy chủ công cộng hoặc thông tin tài khoản thật trong bài kiểm tra này.
+Trong WinForms, backend tự chạy ngay khi mở cửa sổ, không cần nút Start. **Collect + check now** cập nhật ngay một lượt, **Stop** tạm ngưng vòng lặp và tác vụ, **Resume auto** tiếp tục sau khi đã tạm dừng. Nhấp đúp dòng proxy để sao chép. **Manage sources** bật/tắt nhà cung cấp hoặc thêm URL HTTPS; dừng lượt đang chạy trước khi đổi nguồn. **Import** nhận TXT/CSV/JSON tối đa 8 MB và kiểm tra ngay trước khi công bố kết quả. **Export** lưu proxy live theo quốc gia đang chọn. Đóng WinForms lưu kết quả rồi tắt backend riêng; mở lại luôn tự chạy.
 
-`test-manager.ps1` còn chạy các proxy SOCKS5/HTTP thật trên loopback, có/không xác thực: kiểm tra DNS phía proxy, giữ nguyên byte đầu của game, lỗi bắt tay không kết nối trực tiếp, lưu mật khẩu proxy bằng DPAPI và bốn luồng UI → JVM → proxy → đăng nhập với heap 96 MB.
+## Giao diện web dùng Node.js (tùy chọn)
 
-Bài kiểm tra tài nguyên xác nhận chỉ có một luồng canvas, sender ngủ/chạy lại/dừng đúng khi có gói tin hoặc đóng phiên, và thu nhỏ cửa sổ ngừng vẽ nhưng nhịp cập nhật game vẫn tiếp tục. Số đo heap/CPU của một cửa sổ trong cảnh thử được ghi vào `.build/runtime-resource-test.json`; đây không phải benchmark trên bản đồ đông người hoặc bảo đảm mức RAM/CPU cho mọi phiên.
+Có thể chạy `node server.mjs` với Node.js 22+ để dùng backend Node. Node và Python là hai server riêng, cùng phục vụ `public/` và dùng chung `proxyforge/sources.json`. Cả hai có cùng vòng lặp 60 giây, 10.000 kiểm tra đồng thời, timeout 3 giây, đầu ra chỉ live, tra ASN/vị trí và lọc quốc gia. `PROXYFORGE_DATA` chọn thư mục phiên cho cả hai backend.
 
-## Build
+## Danh sách website nguồn
 
-Cần **JDK 17**. Script ưu tiên `toolchain/java`, sau đó `JAVA_HOME` hoặc `java` trong PATH. ZIP source nhẹ không kèm JDK; trên máy khác hãy cài JDK 17 và đặt `JAVA_HOME`, hoặc truyền `-JavaHome`.
+`proxyforge/sources.json` có **50 website/API thuộc 50 domain nguồn khác nhau**, bật mặc định. Mỗi nhà cung cấp được tính một lần; nhiều endpoint HTTP, HTTPS, SOCKS4, SOCKS5 của cùng website được gộp trong trường `feeds`. Không có GitHub raw hoặc CDN trỏ tới file GitHub trong danh mục. Các nguồn có thể dùng chung dữ liệu công khai; engine loại trùng theo giao thức + IP + cổng.
+
+Xem [danh sách 50 nguồn](docs/SOURCES.md) và [báo cáo tải nguồn](docs/source-audit.json). Lượt rà ngày **26/11/2026** tải/đọc được **50/50 nguồn**, có đủ bốn giao thức. Đây là kiểm tra khả năng tải danh sách và cú pháp địa chỉ; proxy thực sự hoạt động được xác định bằng phép đo HTTPS trong từng lượt tự động. Một số API trả một trang hoặc một tập con công khai.
+
+Có thể bật/tắt từng nguồn trong giao diện; cài đặt được giữ khi khởi động lại. Lỗi một nguồn không làm dừng các nguồn còn lại. Parser đọc JSON/API, bảng HTML và một số cách mã hóa địa chỉ đơn giản, bỏ địa chỉ ví dụ trong khối mã/tài liệu và không chạy JavaScript từ website. Mỗi lượt tự động hoặc **Lấy & check ngay** đều tải lại nguồn và đo mạng mới.
+
+Không vượt CAPTCHA, không thu thập nội dung cần đăng nhập và không dùng cookie/API key. Có thể thêm URL HTTPS công khai. Engine chỉ truy cập domain công khai, chặn DNS trỏ vào loopback/mạng riêng, giới hạn mỗi phản hồi 4 MB và kiểm tra thủ công tối đa 500 nguồn.
+
+## Vòng lặp và kiểm tra live
+
+- **HTTPS thật** — bắt tay với proxy, mở CONNECT/SOCKS tunnel, xác minh TLS của endpoint và đọc phản hồi IP. Kết quả `HTTPS sống` chỉ có nghĩa là yêu cầu đó thành công tại thời điểm đo.
+- Nhãn giao thức **HTTPS** là kết nối TLS tới chính proxy. Nhãn **HTTP** vẫn có thể mở CONNECT để truy cập đích HTTPS. Giữ giao thức mà nguồn cung cấp, sau đó xác minh theo chế độ đã chọn.
+- **Mỗi 60 giây** tính từ lúc bắt đầu lượt trước: tải lại các nguồn đang bật, hợp nhất ứng viên mới với proxy live cũ, rồi đo tất cả trong cùng lượt. Nếu lượt trước chưa xong sau 60 giây, đợi nó xong rồi chạy lượt tiếp theo; không chạy chồng hay tạo hàng đợi các lượt trễ.
+- **Chỉ output live**: proxy mới chưa đo và kết quả bắt tay đơn thuần không được công bố. Bảng, thống kê, API, tệp xuất và phiên lưu chỉ chứa `alive`. Trong lúc đo lại, giữ bản live trước đó; đo thất bại thì loại ngay, đo thành công thì cập nhật độ trễ/thời điểm đo.
+- **Tạm dừng** hủy lượt hiện tại và tắt lịch tiếp theo trong phiên đang chạy. Giữ kết quả live đã đo và bản live cũ của proxy chưa đo xong; các thất bại đã xác định vẫn bị loại. **Tiếp tục tự động** chạy lại ngay; khởi động lại backend cũng luôn tự chạy.
+- **Nhập proxy** tự đo HTTPS, lọc trùng và chỉ công bố những proxy thành công. Có thể nhập khi engine đang rảnh; nhấn Dừng nếu đang có lượt chạy.
+- **Timeout tổng 3 giây** cho mỗi proxy, bao gồm kết nối, giao thức proxy, TLS và phản hồi IP của đích HTTPS. Tải danh sách nguồn có timeout riêng 12 giây.
+- **10.000 kiểm tra đồng thời** là mặc định và giới hạn tối đa. Có thể giảm số kết nối trong giao diện khi đã dừng tự động. Số socket thực tế và tốc độ còn phụ thuộc máy, hệ điều hành và mạng.
+- Vòng lặp được khởi động từ backend và tiếp tục khi đóng tab web. Khi tắt backend, phiên live và cấu hình nguồn được lưu; lần mở tiếp theo luôn tự chạy, bỏ qua trạng thái tạm dừng cũ.
+
+API `POST /api/auto` nhận `{"enabled":true,"concurrency":10000,"limit":100000}`. `POST /api/refresh` chạy một lượt tải + kiểm tra mới. `POST /api/check` đo lại kho, `POST /api/collect` cũng tải + kiểm tra trong chế độ live. `POST /api/stop` tắt tự động và hủy lượt đang chạy. `GET /api/state` trả lịch tại `automation`, còn `/api/proxies` và `/api/export` luôn lọc đầu ra live, kể cả khi yêu cầu `status=all`. Các lệnh POST cần token của phiên.
+
+Ước lượng bảo thủ khi mọi proxy đều chờ hết timeout:
+
+```text
+thời gian ≈ số proxy ÷ số kết nối đồng thời × timeout
+100.000 ÷ 10.000 × 3 giây ≈ 30 giây phần đo
+10.000 ÷ 10.000 × 3 giây ≈ 3 giây phần đo
+```
+
+Đây chỉ là ước lượng: đa số proxy chết có thể timeout, proxy tốt kết thúc sớm, trong khi TLS, hệ điều hành, ISP, file descriptor và giới hạn băng thông có thể làm chậm hơn. **Không cam kết 100.000 proxy / 10 giây**, kể cả khi dùng 1 CPU.
+
+## Server, vị trí và lọc quốc gia
+
+Thông tin do nguồn cung cấp được giữ lại. Sau lượt kiểm tra, phần còn thiếu được bổ sung bằng cơ sở dữ liệu IPv4/IPv6 cục bộ: **IPtoASN** cho tên đơn vị vận hành/nhà mạng và ASN, **DB-IP Country Lite** cho quốc gia. Dữ liệu được tải vào thư mục `geo` trong thư mục phiên và dùng lại; nếu tải mới hỏng, bản cache còn dùng được vẫn được giữ.
+
+Vị trí là ước tính của IP máy chủ proxy, không phải địa chỉ chính xác hay IP đầu ra. Thành phố chỉ hiện khi nguồn có cung cấp. Nếu DB-IP chưa dùng được, quốc gia đăng ký ASN có thể được dùng làm dự phòng và được ghi rõ trong `locationSource`. Bộ lọc có 249 mã ISO cùng lựa chọn chưa xác định; số mã không đảm bảo có proxy sống ở mọi quốc gia. TXT, CSV và JSON hỗ trợ lọc quốc gia; CSV/JSON có thêm thông tin server và vị trí.
+
+Ghi công: [IP Geolocation by DB-IP](https://db-ip.com), dữ liệu Lite theo [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); [IPtoASN](https://iptoasn.com), dữ liệu theo [PDDL](https://opendatacommons.org/licenses/pddl/).
+
+## Lưu dữ liệu và bảo mật
+
+- Web chỉ bind vào `127.0.0.1`, không mở cổng ra LAN. Mỗi lần chạy tạo token CSRF trong bộ nhớ và yêu cầu token cho thao tác POST.
+- Feeds chỉ tải qua HTTPS và DNS của feed bị ghim vào IP công khai đã kiểm tra. Kết nối proxy thử đến endpoint HTTPS cố định; proxy lỗi không tự fallback sang mạng trực tiếp.
+- Danh sách, trạng thái kiểm tra và cài đặt nguồn được lưu cục bộ trong `state.json`. Có thể xuất trước khi xóa kho.
+- Danh sách nhập và feed được lọc để chỉ nhận IP công khai; giao diện không nhận địa chỉ loopback, LAN, dải đặc biệt hoặc proxy có username/password.
+
+## Kiểm thử
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\build.ps1
-powershell -NoProfile -ExecutionPolicy Bypass -File .\run.ps1
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+node --test test/*.test.mjs
+node --check .\public\app.js
+powershell -NoProfile -ExecutionPolicy Bypass -File .\Build-WinForms.ps1
+powershell -NoProfile -STA -ExecutionPolicy Bypass -File .\scripts\test-winforms.ps1
+.\.venv\Scripts\python.exe .\scripts\audit-sources.py --output .\docs\source-audit.json
 ```
 
-JAR/JAD mới nằm trong `dist/`. Bản debug có thông tin biến cục bộ nằm trong `debug-dist/`. Compiler vẫn sinh classfile 45.3, boot API CLDC 1.1/MIDP 2.0.
+Kiểm thử bao phủ bộ lọc IP/URL, parser, bốn giao thức, metadata, timeout, lọc trùng và dọn worker khi lỗi/dừng. Các ca tự động kiểm tra backend tự chạy trước bất kỳ yêu cầu HTTP nào, tự tiếp tục sau khi khởi động dù phiên cũ đã dừng, tải nguồn mới mỗi lượt, lượt dài không chồng, output live từng phần, import/xuất chỉ live và đúng 10.000 phép đo đồng thời trong bộ kiểm tra có kiểm soát (không mở 10.000 kết nối tới website bên ngoài). Tra cứu địa lý bao phủ IPv4/IPv6, ưu tiên quốc gia IP hơn quốc gia ASN và giữ cache khi tải mới hỏng.
 
-## Eclipse và debug
+Kiểm thử giao diện chạy HTML/JavaScript thật bằng Chrome hoặc Edge headless trên phiên dữ liệu giả riêng, không chạm kho proxy đang lưu. Test kiểm tra điều hướng, nút và biểu mẫu nhập, quản lý nguồn, thu thập/kiểm tra/dừng, bộ lọc, hộp thoại và xóa có xác nhận. Nếu trình duyệt nằm ngoài đường dẫn thông dụng, đặt `PROXYFORGE_BROWSER` tới file thực thi; test sẽ báo bỏ qua khi không tìm thấy trình duyệt. Test Python kiểm tra JSON xuất với 0, 1, 2 và 501 proxy, bao gồm ranh giới phân lô 500 dòng.
 
-1. File → Import → General → Existing Projects into Workspace; chọn thư mục này và import **NRO-JavaME**. Dùng workspace Eclipse riêng nếu muốn làm việc tách biệt.
-2. Project → Build Project để build bằng external builder đã có.
-3. Đặt breakpoint tại `main.GameMidlet.startApp()` hoặc `nro.MotherCanvas`.
-4. Chạy lệnh bên dưới. JVM sẽ chờ debugger, nên emulator chưa xuất hiện ngay.
-5. Trong Eclipse: Run → Debug Configurations → Remote Java Application. Chọn project **NRO-JavaME**, Host **127.0.0.1**, Port **5005**, rồi Debug và Resume (F8).
-6. Khi MicroEmulator mở, chọn game và bấm Start.
+Phép thử WinForms cần desktop Windows, tự tạo thư mục dữ liệu mới và mở giao diện với backend Python thật. Nó kiểm tra tự chạy khi khởi động, cấu hình 10.000/3 giây, 249 quốc gia, server/vị trí, bộ lọc, xóa proxy lỗi, tạm dừng/tiếp tục và lấy/check ngay. `audit-sources.py` tải danh sách công khai thật nên kết quả phụ thuộc trạng thái website tại thời điểm chạy.
 
-```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\run.ps1 -Debug
-```
-
-Đổi cổng bằng `-Port 5006`; chỉ build debug bằng `build.ps1 -DebugSymbols`. Biến đã bị compiler tối ưu bỏ có thể không còn để xem trong debugger.
-
-`src/main/java/` là source game, `src/main/resources/` là tài nguyên, `account-manager/` là QLTK Swing và bootstrap, `account-manager/qltk/net/` là adapter proxy, `lib/` là ECJ/API/MicroEmulator và `toolchain/StandaloneJarBuild.java` là công cụ build. ZIP source chỉ chứa project và phụ thuộc build nhỏ; không chứa JDK, cache hoặc dữ liệu cá nhân. Script build cập nhật cả `QLTK.jar` và `release/QLTK.jar`.
-
-Đóng gói source nhỏ để chép sang máy khác: `powershell -NoProfile -ExecutionPolicy Bypass -File .\package-source.ps1`. Tệp tạo ở `release/nro-qltk-java-source.zip`.
+Xem [kết quả kiểm chứng ngày 26/11/2026](docs/VERIFICATION.md), bao gồm đo proxy công khai qua HTTPS thật và thao tác trên backend thật.

@@ -1,0 +1,1210 @@
+{
+  "checkedAt": "2026-11-26T13:07:17.070310+00:00",
+  "scope": "HTTPS download and valid-address parsing; proxy reachability requires Check.",
+  "summary": {
+    "total": 50,
+    "ok": 50,
+    "protocolCounts": {
+      "http": 22187,
+      "https": 9034,
+      "socks4": 14569,
+      "socks5": 22094
+    }
+  },
+  "results": [
+    {
+      "id": "89ip-web",
+      "name": "89IP",
+      "publisher": "89IP",
+      "protocol": "http",
+      "url": "https://www.89ip.cn/",
+      "homepage": "https://www.89ip.cn/",
+      "enabled": true,
+      "ok": true,
+      "count": 40,
+      "protocolCounts": {
+        "http": 40
+      },
+      "errors": [],
+      "durationMs": 1198
+    },
+    {
+      "id": "advanced-name-web",
+      "name": "Advanced.name",
+      "publisher": "Advanced.name",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://advanced.name/freeproxy",
+      "homepage": "https://advanced.name/freeproxy",
+      "enabled": true,
+      "ok": true,
+      "count": 100,
+      "protocolCounts": {
+        "http": 96,
+        "https": 1,
+        "socks5": 2,
+        "socks4": 1
+      },
+      "errors": [],
+      "durationMs": 284
+    },
+    {
+      "id": "cleanproxies-web",
+      "name": "CleanProxies",
+      "publisher": "CleanProxies",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://cleanproxies.com/tools/free-proxy-list",
+      "homepage": "https://cleanproxies.com/tools/free-proxy-list",
+      "enabled": true,
+      "ok": true,
+      "count": 50,
+      "protocolCounts": {
+        "socks4": 31,
+        "socks5": 9,
+        "http": 10
+      },
+      "errors": [],
+      "durationMs": 364
+    },
+    {
+      "id": "dahono-web",
+      "name": "Dahono Router API",
+      "publisher": "Dahono",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://router.dahono.com/api/proxy/free?limit=100",
+      "homepage": "https://router.dahono.com/proxy/free",
+      "enabled": true,
+      "ok": true,
+      "count": 116,
+      "protocolCounts": {
+        "http": 81,
+        "https": 19,
+        "socks4": 4,
+        "socks5": 12
+      },
+      "errors": [],
+      "durationMs": 4888
+    },
+    {
+      "id": "databay-web",
+      "name": "Databay public list",
+      "publisher": "Databay",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://databay.com/free-proxy-list",
+      "homepage": "https://databay.com/free-proxy-list",
+      "enabled": true,
+      "ok": true,
+      "count": 10,
+      "protocolCounts": {
+        "https": 10
+      },
+      "errors": [],
+      "durationMs": 1121
+    },
+    {
+      "id": "fineproxy-web",
+      "name": "FineProxy",
+      "publisher": "FineProxy",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://fineproxy.org/free-proxy/",
+      "homepage": "https://fineproxy.org/free-proxy/",
+      "enabled": true,
+      "ok": true,
+      "count": 8000,
+      "protocolCounts": {
+        "http": 2000,
+        "https": 2000,
+        "socks4": 2000,
+        "socks5": 2000
+      },
+      "errors": [],
+      "durationMs": 1573
+    },
+    {
+      "id": "flashproxy-web",
+      "name": "FlashProxy API",
+      "publisher": "FlashProxy",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://flashproxy.com/api/proxies/json?limit=1000",
+      "homepage": "https://flashproxy.com/resources/free-proxies",
+      "enabled": true,
+      "ok": true,
+      "count": 1000,
+      "protocolCounts": {
+        "socks5": 472,
+        "http": 470,
+        "socks4": 58
+      },
+      "errors": [],
+      "durationMs": 415
+    },
+    {
+      "id": "free-proxy-list-net",
+      "name": "Free-Proxy-List.net",
+      "publisher": "Free-Proxy-List.net",
+      "protocol": "http",
+      "url": "https://free-proxy-list.net/",
+      "homepage": "https://free-proxy-list.net/",
+      "enabled": true,
+      "ok": true,
+      "count": 300,
+      "protocolCounts": {
+        "http": 296,
+        "socks4": 4
+      },
+      "errors": [],
+      "durationMs": 696
+    },
+    {
+      "id": "freeproxy-world-web",
+      "name": "FreeProxyWorld",
+      "publisher": "FreeProxyWorld",
+      "protocol": "http",
+      "url": "https://www.freeproxy.world/",
+      "homepage": "https://www.freeproxy.world/",
+      "enabled": true,
+      "ok": true,
+      "count": 50,
+      "protocolCounts": {
+        "http": 50
+      },
+      "errors": [],
+      "durationMs": 843
+    },
+    {
+      "id": "freeproxyapi-web",
+      "name": "FreeProxyAPI",
+      "publisher": "FreeProxyAPI",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://www.freeproxyapi.com/list.json?limit=15",
+      "homepage": "https://www.freeproxyapi.com/",
+      "enabled": true,
+      "ok": true,
+      "count": 15,
+      "protocolCounts": {
+        "http": 14,
+        "socks5": 1
+      },
+      "errors": [],
+      "durationMs": 359
+    },
+    {
+      "id": "gcrawlai-web",
+      "name": "GcrawlAI API",
+      "publisher": "GcrawlAI",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://gcrawlai.com/gc/api/v1/free-proxy?limit=100",
+      "homepage": "https://gcrawlai.com/free-proxy-list",
+      "enabled": true,
+      "ok": true,
+      "count": 100,
+      "protocolCounts": {
+        "socks5": 38,
+        "http": 27,
+        "socks4": 17,
+        "https": 18
+      },
+      "errors": [],
+      "durationMs": 5067
+    },
+    {
+      "id": "geonode-web",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "name": "Geonode API",
+      "publisher": "Geonode",
+      "protocol": "http",
+      "url": "https://proxylist.geonode.com/api/proxy-list?limit=500&page=1&sort_by=lastChecked&sort_type=desc",
+      "homepage": "https://geonode.com/free-proxy-list",
+      "enabled": true,
+      "ok": true,
+      "count": 500,
+      "protocolCounts": {
+        "socks5": 147,
+        "http": 179,
+        "socks4": 75,
+        "https": 99
+      },
+      "errors": [],
+      "durationMs": 802
+    },
+    {
+      "id": "gimmeproxy-web",
+      "name": "GimmeProxy API",
+      "publisher": "GimmeProxy",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://gimmeproxy.com/api/getProxy",
+      "homepage": "https://gimmeproxy.com/",
+      "enabled": true,
+      "ok": true,
+      "count": 1,
+      "protocolCounts": {
+        "socks5": 1
+      },
+      "errors": [],
+      "durationMs": 4622
+    },
+    {
+      "id": "hidemy-name-web",
+      "name": "HideMy.name",
+      "publisher": "HideMy.name",
+      "protocol": "http",
+      "url": "https://hide.mn/en/proxy-list/",
+      "homepage": "https://hide.mn/en/proxy-list/",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "enabled": true,
+      "ok": true,
+      "count": 65,
+      "protocolCounts": {
+        "socks4": 1,
+        "socks5": 1,
+        "http": 63
+      },
+      "errors": [],
+      "durationMs": 2010
+    },
+    {
+      "id": "hproxy-web",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "name": "HProxy API",
+      "publisher": "HProxy",
+      "protocol": "http",
+      "url": "https://hproxy.com/api/proxy-list?format=json",
+      "homepage": "https://hproxy.com/",
+      "enabled": true,
+      "ok": true,
+      "count": 6828,
+      "protocolCounts": {
+        "http": 3061,
+        "https": 2804,
+        "socks4": 579,
+        "socks5": 384
+      },
+      "errors": [],
+      "durationMs": 628
+    },
+    {
+      "id": "ihuan-web",
+      "name": "Ihuan",
+      "publisher": "Ihuan",
+      "protocol": "http",
+      "url": "https://ip.ihuan.me/",
+      "homepage": "https://ip.ihuan.me/",
+      "enabled": true,
+      "ok": true,
+      "count": 18,
+      "protocolCounts": {
+        "http": 18
+      },
+      "errors": [],
+      "durationMs": 1046
+    },
+    {
+      "id": "litport-web",
+      "name": "Litport API",
+      "publisher": "Litport",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://litport.net/api/free-proxy",
+      "homepage": "https://litport.net/docs/free-proxy-api",
+      "enabled": true,
+      "ok": true,
+      "count": 50,
+      "protocolCounts": {
+        "socks4": 19,
+        "socks5": 10,
+        "http": 21
+      },
+      "errors": [],
+      "durationMs": 104
+    },
+    {
+      "id": "marsproxies-web",
+      "name": "MarsProxies",
+      "publisher": "MarsProxies",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://marsproxies.com/free-proxy-list",
+      "homepage": "https://marsproxies.com/free-proxy-list",
+      "enabled": true,
+      "ok": true,
+      "count": 10,
+      "protocolCounts": {
+        "http": 10
+      },
+      "errors": [],
+      "durationMs": 4760
+    },
+    {
+      "id": "my-proxy-web",
+      "protocols": [
+        "http",
+        "socks4",
+        "socks5"
+      ],
+      "feeds": [
+        {
+          "url": "https://www.my-proxy.com/free-proxy-list.html",
+          "protocol": "http"
+        },
+        {
+          "url": "https://www.my-proxy.com/free-socks-4-proxy.html",
+          "protocol": "socks4"
+        },
+        {
+          "url": "https://www.my-proxy.com/free-socks-5-proxy.html",
+          "protocol": "socks5"
+        }
+      ],
+      "name": "My-Proxy",
+      "publisher": "My-Proxy",
+      "protocol": "http",
+      "url": "https://www.my-proxy.com/free-proxy-list.html",
+      "homepage": "https://www.my-proxy.com/",
+      "enabled": true,
+      "ok": true,
+      "count": 210,
+      "protocolCounts": {
+        "http": 70,
+        "socks4": 70,
+        "socks5": 70
+      },
+      "errors": [],
+      "durationMs": 877
+    },
+    {
+      "id": "myproxychecker-web",
+      "name": "myProxyChecker API",
+      "publisher": "myProxyChecker",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://myproxychecker.com/free-proxy-list/export.json",
+      "homepage": "https://myproxychecker.com/api/proxy-list",
+      "enabled": true,
+      "ok": true,
+      "count": 104,
+      "protocolCounts": {
+        "http": 83,
+        "socks5": 17,
+        "https": 4
+      },
+      "errors": [],
+      "durationMs": 422
+    },
+    {
+      "id": "nodemaven-web",
+      "name": "NodeMaven API",
+      "publisher": "NodeMaven",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://freeproxies.nodemaven.com/proxies?per_page=10000",
+      "homepage": "https://nodemaven.com/free-proxy-list",
+      "enabled": true,
+      "ok": true,
+      "count": 2127,
+      "protocolCounts": {
+        "socks5": 731,
+        "socks4": 824,
+        "https": 572
+      },
+      "errors": [],
+      "durationMs": 825
+    },
+    {
+      "id": "openproxylist-web",
+      "protocols": [
+        "http",
+        "socks4",
+        "socks5"
+      ],
+      "feeds": [
+        {
+          "url": "https://api.openproxylist.xyz/http.txt",
+          "protocol": "http"
+        },
+        {
+          "url": "https://api.openproxylist.xyz/socks4.txt",
+          "protocol": "socks4"
+        },
+        {
+          "url": "https://api.openproxylist.xyz/socks5.txt",
+          "protocol": "socks5"
+        }
+      ],
+      "name": "OpenProxyList endpoint",
+      "publisher": "OpenProxyList",
+      "protocol": "http",
+      "url": "https://api.openproxylist.xyz/http.txt",
+      "homepage": "https://openproxylist.xyz/",
+      "enabled": true,
+      "ok": true,
+      "count": 19435,
+      "protocolCounts": {
+        "http": 6441,
+        "socks4": 4731,
+        "socks5": 8263
+      },
+      "errors": [],
+      "durationMs": 1407
+    },
+    {
+      "id": "proxio-web",
+      "name": "Proxio",
+      "publisher": "Proxio",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://proxio.io/download?format=json",
+      "homepage": "https://proxio.io/",
+      "enabled": true,
+      "ok": true,
+      "count": 661,
+      "protocolCounts": {
+        "http": 591,
+        "socks5": 29,
+        "https": 2,
+        "socks4": 39
+      },
+      "errors": [],
+      "durationMs": 212
+    },
+    {
+      "id": "proxiware-web",
+      "name": "Proxiware API",
+      "publisher": "Proxiware",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://papi.proxiware.com/proxies?page=1",
+      "homepage": "https://proxiware.com/free-proxy-list",
+      "enabled": true,
+      "ok": true,
+      "count": 100,
+      "protocolCounts": {
+        "https": 93,
+        "http": 7
+      },
+      "errors": [],
+      "durationMs": 248
+    },
+    {
+      "id": "proxmint-web",
+      "name": "Proxmint API",
+      "publisher": "Proxmint",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://proxmint.com/api/free-proxies?pageSize=200",
+      "homepage": "https://proxmint.com/free-proxies",
+      "enabled": true,
+      "ok": true,
+      "count": 200,
+      "protocolCounts": {
+        "socks5": 24,
+        "http": 80,
+        "socks4": 90,
+        "https": 6
+      },
+      "errors": [],
+      "durationMs": 712
+    },
+    {
+      "id": "proxora-web",
+      "name": "Proxora API",
+      "publisher": "Proxora",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://api.proxora.io/api/tools/free-proxies?per_page=500",
+      "homepage": "https://proxora.io/free-proxy-list/api",
+      "enabled": true,
+      "ok": true,
+      "count": 500,
+      "protocolCounts": {
+        "http": 308,
+        "socks5": 90,
+        "socks4": 102
+      },
+      "errors": [],
+      "durationMs": 991
+    },
+    {
+      "id": "proxy-daily-web",
+      "name": "Proxy-Daily API",
+      "publisher": "Proxy-Daily",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://proxy-daily.com/api/export_proxies_json",
+      "homepage": "https://proxy-daily.com/",
+      "enabled": true,
+      "ok": true,
+      "count": 268,
+      "protocolCounts": {
+        "http": 143,
+        "socks4": 59,
+        "socks5": 13,
+        "https": 53
+      },
+      "errors": [],
+      "durationMs": 642
+    },
+    {
+      "id": "proxy-free-web",
+      "name": "Proxy-Free.com",
+      "publisher": "Proxy-Free.com",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://proxy-free.com/",
+      "homepage": "https://proxy-free.com/",
+      "enabled": true,
+      "ok": true,
+      "count": 15,
+      "protocolCounts": {
+        "http": 15
+      },
+      "errors": [],
+      "durationMs": 617
+    },
+    {
+      "id": "proxy-list-org-web",
+      "name": "Proxy-List.org",
+      "publisher": "Proxy-List.org",
+      "protocol": "http",
+      "url": "https://proxy-list.org/english/index.php",
+      "homepage": "https://proxy-list.org/",
+      "enabled": true,
+      "ok": true,
+      "count": 28,
+      "protocolCounts": {
+        "http": 14,
+        "https": 14
+      },
+      "errors": [],
+      "durationMs": 620
+    },
+    {
+      "id": "proxy11-web",
+      "name": "Proxy11",
+      "publisher": "Proxy11",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://proxy11.com/",
+      "homepage": "https://proxy11.com/",
+      "enabled": true,
+      "ok": true,
+      "count": 15,
+      "protocolCounts": {
+        "http": 15
+      },
+      "errors": [],
+      "durationMs": 1731
+    },
+    {
+      "id": "proxycompass-web",
+      "name": "ProxyCompass API",
+      "publisher": "ProxyCompass",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://www.proxycompass.com/api/v1/free-proxies/live?page=1&page_size=500",
+      "homepage": "https://www.proxycompass.com/free-proxy/",
+      "enabled": true,
+      "ok": true,
+      "count": 590,
+      "protocolCounts": {
+        "http": 497,
+        "socks4": 46,
+        "socks5": 47
+      },
+      "errors": [],
+      "durationMs": 978
+    },
+    {
+      "id": "proxydb-web",
+      "name": "ProxyDB",
+      "publisher": "ProxyDB",
+      "protocol": "http",
+      "url": "https://proxydb.net/",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "homepage": "https://proxydb.net/",
+      "enabled": true,
+      "ok": true,
+      "count": 12,
+      "protocolCounts": {
+        "http": 12
+      },
+      "errors": [],
+      "durationMs": 1186
+    },
+    {
+      "id": "proxyelite-web",
+      "name": "ProxyElite",
+      "publisher": "ProxyElite",
+      "protocol": "http",
+      "url": "https://proxyelite.info/free-proxy-list/",
+      "homepage": "https://proxyelite.info/",
+      "enabled": true,
+      "ok": true,
+      "count": 444,
+      "protocolCounts": {
+        "http": 400,
+        "socks4": 22,
+        "socks5": 22
+      },
+      "errors": [],
+      "durationMs": 2317
+    },
+    {
+      "id": "proxyfreeonly-web",
+      "name": "ProxyFreeOnly",
+      "publisher": "ProxyFreeOnly",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://proxyfreeonly.com/",
+      "homepage": "https://proxyfreeonly.com/",
+      "enabled": true,
+      "ok": true,
+      "count": 15,
+      "protocolCounts": {
+        "socks5": 1,
+        "socks4": 1,
+        "http": 13
+      },
+      "errors": [],
+      "durationMs": 176
+    },
+    {
+      "id": "proxyhub-web",
+      "name": "ProxyHub",
+      "publisher": "ProxyHub",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://www.proxyhub.me/en/all-http-proxy-list.html",
+      "homepage": "https://www.proxyhub.me/",
+      "enabled": true,
+      "feeds": [
+        {
+          "url": "https://www.proxyhub.me/en/all-http-proxy-list.html",
+          "protocol": "http"
+        },
+        {
+          "url": "https://www.proxyhub.me/en/all-https-proxy-list.html",
+          "protocol": "https"
+        },
+        {
+          "url": "https://www.proxyhub.me/en/all-socks4-proxy-list.html",
+          "protocol": "socks4"
+        },
+        {
+          "url": "https://www.proxyhub.me/en/all-socks5-proxy-list.html",
+          "protocol": "socks5"
+        }
+      ],
+      "ok": true,
+      "count": 80,
+      "protocolCounts": {
+        "http": 20,
+        "https": 20,
+        "socks4": 20,
+        "socks5": 20
+      },
+      "errors": [],
+      "durationMs": 567
+    },
+    {
+      "id": "proxylister-web",
+      "name": "ProxyLister",
+      "publisher": "ProxyLister",
+      "protocol": "http",
+      "url": "https://proxylister.com/",
+      "homepage": "https://proxylister.com/",
+      "enabled": true,
+      "ok": true,
+      "count": 5,
+      "protocolCounts": {
+        "http": 5
+      },
+      "errors": [],
+      "durationMs": 130
+    },
+    {
+      "id": "proxylistplus-web",
+      "name": "ProxyListPlus",
+      "publisher": "ProxyListPlus",
+      "protocol": "http",
+      "url": "https://list.proxylistplus.com/Fresh-HTTP-Proxy-List-1",
+      "homepage": "https://www.proxylistplus.com/",
+      "enabled": true,
+      "ok": true,
+      "count": 50,
+      "protocolCounts": {
+        "http": 50
+      },
+      "errors": [],
+      "durationMs": 815
+    },
+    {
+      "id": "proxymania-web",
+      "name": "ProxyMania",
+      "publisher": "ProxyMania",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://proxymania.su/free-proxy",
+      "homepage": "https://proxymania.su/free-proxy",
+      "enabled": true,
+      "ok": true,
+      "count": 15,
+      "protocolCounts": {
+        "https": 15
+      },
+      "errors": [],
+      "durationMs": 2350
+    },
+    {
+      "id": "proxynova-web",
+      "name": "ProxyNova",
+      "publisher": "ProxyNova",
+      "protocol": "http",
+      "url": "https://www.proxynova.com/proxy-server-list/",
+      "homepage": "https://www.proxynova.com/",
+      "enabled": true,
+      "ok": true,
+      "count": 12,
+      "protocolCounts": {
+        "http": 12
+      },
+      "errors": [],
+      "durationMs": 2430
+    },
+    {
+      "id": "proxyscrape-web",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "name": "ProxyScrape API",
+      "publisher": "ProxyScrape",
+      "protocol": "http",
+      "url": "https://api.proxyscrape.com/v4/free-proxy-list/get?request=display_proxies&proxy_format=protocolipport&format=json",
+      "homepage": "https://proxyscrape.com/free-proxy-list",
+      "enabled": true,
+      "ok": true,
+      "count": 1614,
+      "protocolCounts": {
+        "http": 876,
+        "socks5": 567,
+        "socks4": 171
+      },
+      "errors": [],
+      "durationMs": 1096
+    },
+    {
+      "id": "proxyscraper-web",
+      "name": "ProxyScraper API",
+      "publisher": "ProxyScraper",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "socks5"
+      ],
+      "url": "https://api.proxyscraper.com/v1/http.json",
+      "homepage": "https://proxyscraper.com/",
+      "enabled": true,
+      "feeds": [
+        {
+          "url": "https://api.proxyscraper.com/v1/http.json",
+          "protocol": "http"
+        },
+        {
+          "url": "https://api.proxyscraper.com/v1/socks5.json",
+          "protocol": "socks5"
+        }
+      ],
+      "ok": true,
+      "count": 246,
+      "protocolCounts": {
+        "http": 217,
+        "socks5": 29
+      },
+      "errors": [],
+      "durationMs": 475
+    },
+    {
+      "id": "proxyspace-web",
+      "name": "ProxySpace",
+      "publisher": "ProxySpace",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://proxyspace.pro/http.txt",
+      "homepage": "https://proxyspace.pro/",
+      "enabled": true,
+      "feeds": [
+        {
+          "url": "https://proxyspace.pro/http.txt",
+          "protocol": "http"
+        },
+        {
+          "url": "https://proxyspace.pro/https.txt",
+          "protocol": "https"
+        },
+        {
+          "url": "https://proxyspace.pro/socks4.txt",
+          "protocol": "socks4"
+        },
+        {
+          "url": "https://proxyspace.pro/socks5.txt",
+          "protocol": "socks5"
+        }
+      ],
+      "ok": true,
+      "count": 19586,
+      "protocolCounts": {
+        "http": 4176,
+        "https": 2891,
+        "socks4": 4675,
+        "socks5": 7844
+      },
+      "errors": [],
+      "durationMs": 2089
+    },
+    {
+      "id": "proxytee-web",
+      "name": "ProxyTee",
+      "publisher": "ProxyTee",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://app.proxytee.com/static/free-proxies.json",
+      "homepage": "https://proxytee.com/free-proxies",
+      "enabled": true,
+      "ok": true,
+      "count": 1855,
+      "protocolCounts": {
+        "socks5": 415,
+        "http": 530,
+        "socks4": 538,
+        "https": 372
+      },
+      "errors": [],
+      "durationMs": 237
+    },
+    {
+      "id": "proxyverity-web",
+      "name": "ProxyVerity",
+      "publisher": "ProxyVerity",
+      "protocol": "http",
+      "url": "https://proxyverity.com/",
+      "homepage": "https://proxyverity.com/",
+      "enabled": true,
+      "ok": true,
+      "count": 20,
+      "protocolCounts": {
+        "http": 20
+      },
+      "errors": [],
+      "durationMs": 2637
+    },
+    {
+      "id": "rola-ip-web",
+      "name": "ROLA-IP",
+      "publisher": "ROLA-IP",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://rola-ip.co/tools/free-proxy-list/",
+      "homepage": "https://rola-ip.co/tools/free-proxy-list/",
+      "enabled": true,
+      "ok": true,
+      "count": 100,
+      "protocolCounts": {
+        "http": 56,
+        "https": 23,
+        "socks5": 10,
+        "socks4": 11
+      },
+      "errors": [],
+      "durationMs": 1262
+    },
+    {
+      "id": "roundproxies-web",
+      "name": "RoundProxies",
+      "publisher": "RoundProxies",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://roundproxies.com/api/get-free-proxies?limit=100&page=1&sort_by=lastChecked&sort_type=desc",
+      "homepage": "https://roundproxies.com/free-proxy-list",
+      "enabled": true,
+      "ok": true,
+      "count": 100,
+      "protocolCounts": {
+        "socks5": 38,
+        "http": 27,
+        "socks4": 17,
+        "https": 18
+      },
+      "errors": [],
+      "durationMs": 601
+    },
+    {
+      "id": "scrappey-web",
+      "name": "Scrappey",
+      "publisher": "Scrappey",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://scrappey.com/tools/free-proxy-lists",
+      "homepage": "https://scrappey.com/tools/free-proxy-lists",
+      "enabled": true,
+      "ok": true,
+      "count": 500,
+      "protocolCounts": {
+        "http": 167,
+        "socks5": 167,
+        "socks4": 166
+      },
+      "errors": [],
+      "durationMs": 596
+    },
+    {
+      "id": "spys-one-web",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "feeds": [
+        {
+          "url": "https://spys.one/en/free-proxy-list/",
+          "protocol": "http"
+        },
+        {
+          "url": "https://spys.one/en/socks-proxy-list/",
+          "protocol": "socks5"
+        }
+      ],
+      "name": "Spys.one",
+      "publisher": "Spys.one",
+      "protocol": "http",
+      "url": "https://spys.one/en/free-proxy-list/",
+      "homepage": "https://spys.one/",
+      "enabled": true,
+      "ok": true,
+      "count": 60,
+      "protocolCounts": {
+        "http": 30,
+        "socks5": 30
+      },
+      "errors": [],
+      "durationMs": 2334
+    },
+    {
+      "id": "way2proxy-web",
+      "name": "Way2Proxy",
+      "publisher": "Way2Proxy",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://way2proxy.com/free-proxy-list",
+      "homepage": "https://way2proxy.com/free-proxy-list",
+      "enabled": true,
+      "ok": true,
+      "count": 1614,
+      "protocolCounts": {
+        "http": 876,
+        "socks5": 567,
+        "socks4": 171
+      },
+      "errors": [],
+      "durationMs": 5247
+    },
+    {
+      "id": "we1-town-web",
+      "name": "WE1.Town",
+      "publisher": "WE1.Town",
+      "protocol": "http",
+      "protocols": [
+        "http",
+        "https",
+        "socks4",
+        "socks5"
+      ],
+      "url": "https://we1.town/en/free-proxy-list",
+      "homepage": "https://we1.town/en/free-proxy-list",
+      "enabled": true,
+      "ok": true,
+      "count": 50,
+      "protocolCounts": {
+        "socks5": 23,
+        "socks4": 27
+      },
+      "errors": [],
+      "durationMs": 656
+    }
+  ]
+}
